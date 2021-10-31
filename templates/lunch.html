@@ -1,0 +1,33 @@
+<title>Lunch Inventory</title>
+<style>
+    h1{
+        text-align: center;
+    }
+    body {
+      text-align: center;
+    }
+    ol {
+      list-style: none;
+      text-align: center;
+      padding: 3em;
+    }
+</style>
+
+<h1>Your Lunch Items:  </h1>
+<ol> 
+  {% for lunch_items in all_items %}
+    <li>
+    {{ lunch_items.content}}
+    <form action="/deleteLunch/{{lunch_items.id}}/" 
+    style="display: inline;"
+    method="post">{% csrf_token %}
+      <input type="submit" value="Delete"/>
+    </form>
+
+    </li>
+  {% endfor %}
+</ol>
+
+<form action="/goHome/" method="post">{% csrf_token %}
+  <input type="submit" value="Return to Home"/>
+</form>

@@ -1,0 +1,33 @@
+<title>Snack Inventory</title>
+<style>
+    h1{
+        text-align: center;
+    }
+    body {
+      text-align: center;
+    }
+    ol {
+      list-style: none;
+      text-align: center;
+      padding: 3em;
+    }
+</style>
+
+<h1>Your Snack Items:  </h1>
+<ol> 
+  {% for snack_items in all_items %}
+    <li>
+    {{ snack_items.content}}
+    <form action="/deleteSnack/{{snack_items.id}}/" 
+    style="display: inline;"
+    method="post">{% csrf_token %}
+      <input type="submit" value="Delete"/>
+    </form>
+
+    </li>
+  {% endfor %}
+</ol>
+
+<form action="/goHome/" method="post">{% csrf_token %}
+  <input type="submit" value="Return to Home"/>
+</form>

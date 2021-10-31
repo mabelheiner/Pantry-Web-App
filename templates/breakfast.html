@@ -1,0 +1,35 @@
+<title>Breakfast Inventory</title>
+
+<style>
+    h1{
+      text-align: center;
+    }
+    body {
+      text-align: center;
+    }
+
+    ol {
+      list-style: none;
+      text-align: center;
+      padding: 3em;
+    }
+</style>
+
+<h1>Your BreakFast Items:  </h1>
+<ol> 
+  {% for breakfast_items in all_items %}
+    <li>
+    {{ breakfast_items.content}}
+    <form action="/deleteBreakfast/{{breakfast_items.id}}/" 
+    style="display: inline;"
+    method="post">{% csrf_token %}
+      <input type="submit" value="Delete"/>
+    </form>
+
+    </li>
+  {% endfor %}
+</ol>
+
+<form action="/goHome/" method="post">{% csrf_token %}
+  <input type="submit" value="Return to Home"/>
+</form>

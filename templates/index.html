@@ -1,0 +1,68 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <title>Pantry App</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" type="css" href="C:\Users\mabel\OneDrive\Desktop\To Do\mysite\static\index.css">
+  </head>
+
+<body>
+  <style>
+    h1{
+        text-align: center;
+    }
+    body {
+      text-align: center;
+    }
+</style>
+
+<h1>Let's Keep Track of Your Food!</h1>
+
+<form action="/addBreakfast/" method="post">{% csrf_token %}
+  <input type="text" name="content"/> <br>
+  <input type="submit" value="Add BreakFast"/>
+</form>
+
+<form action="/displayBreakfast/" method="post">{% csrf_token %}
+  <input type="submit" value="Display BreakFast List"/> <br>
+</form>
+
+<form action="/addLunch/" method="post">{% csrf_token %}
+  <input type="text" name="content"/> <br>
+  <input type="submit" value="Add Lunch"/> 
+</form>
+
+<form action="/displayLunch/" method="post">{% csrf_token %}
+  <input type="submit" value="Display Lunch List"/> <br>
+</form>
+
+<form action="/addDinner/" method="post">{% csrf_token %}
+  <input type="text" name="content"/> <br>
+  <input type="submit" value="Add Dinner"/> 
+</form>
+
+<form action="/displayDinner/" method="post">{% csrf_token %}
+  <input type="submit" value="Display Dinner List"/> <br>
+</form>
+
+<form action="/addDesert/" method="post">{% csrf_token %}
+  <input type="text" name="content"/> <br>
+  <input type="submit" value="Add Desert"/> 
+</form>
+
+<form action="/displayDesert/" method="post">{% csrf_token %}
+  <input type="submit" value="Display Desert List"/> <br>
+</form>
+
+<form action="/addSnack/" method="post">{% csrf_token %}
+  <input type="text" name="content"/> <br>
+  <input type="submit" value="Add Snack"/> 
+</form>
+
+<form action="/displaySnack/" method="post">{% csrf_token %}
+  <input type="submit" value="Display Snacks List"/> <br>
+</form>
+
+</body>

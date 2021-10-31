@@ -1,0 +1,33 @@
+<title>Desert Inventory</title>
+<style>
+    h1{
+        text-align: center;
+    }
+    body {
+      text-align: center;
+    }
+    ol {
+      list-style: none;
+      text-align: center;
+      padding: 3em;
+    }
+</style>
+
+<h1>Your Desert Items:  </h1>
+<ol> 
+  {% for desert_items in all_items %}
+    <li>
+    {{ desert_items.content}}
+    <form action="/deleteDesert/{{desert_items.id}}/" 
+    style="display: inline;"
+    method="post">{% csrf_token %}
+      <input type="submit" value="Delete"/>
+    </form>
+
+    </li>
+  {% endfor %}
+</ol>
+
+<form action="/goHome/" method="post">{% csrf_token %}
+  <input type="submit" value="Return to Home"/>
+</form>
